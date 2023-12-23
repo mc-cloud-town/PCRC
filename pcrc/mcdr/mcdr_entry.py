@@ -60,9 +60,9 @@ def create_new_pcrc(source: CommandSource, pcrc_id: str):
     log = pcrc.logger
 
     log.set_console_handler(SyncStdoutStreamHandler())
-    pcrc_id = id(pcrc)
+    memory_id = id(pcrc)
     log.set_console_logging_prefix(
-        f"PCRC@{hex((pcrc_id >> 16) & (pcrc_id & 0xFFFF))[2:].rjust(4, '0')}"
+        f"PCRC@{hex((memory_id >> 16) & (memory_id & 0xFFFF))[2:].rjust(4, '0')}"
     )
     pcrc.reload_config()
     pcrc_clients[pcrc_id] = pcrc
@@ -109,7 +109,9 @@ def on_load(server: PluginServerInterface, old):
 def show_list(source: CommandSource):
     source.reply("PCRC clients:")
     for index, (id, pcrc) in enumerate(pcrc_clients.items()):
-        source.reply(f"  {index}. -> {id} [{'錄製中' if pcrc.is_stopping() else '停止'}]")
+        source.reply(
+            f"  {index + 1}. -> {id} [{'錄製中' if pcrc.is_stopping() else '停止'}]"
+        )
 
 
 def reload_config(source: Optional[CommandSource]):
