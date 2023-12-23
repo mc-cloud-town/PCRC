@@ -420,7 +420,7 @@ class Recorder:
             if len(args) == 0 or args[0] != self.get_config("command_prefix"):
                 return
 
-            if args[:-1] != self.pcrc.id:
+            if args[-1] != self.pcrc.id:
                 return
             args.pop()
 
