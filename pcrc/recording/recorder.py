@@ -398,7 +398,10 @@ class Recorder:
         )
 
     def on_command(
-        self, command: str, player_name: Optional[str], player_uuid: Optional[str]
+        self,
+        command: str,
+        player_name: Optional[str],
+        player_uuid: Optional[str],
     ):
         if player_name == self.pcrc.player_name:
             return
@@ -408,12 +411,20 @@ class Recorder:
             args = command.split(" ")  # !!PCRC <> <> <> <>
             self.logger.info(
                 "Processing Command {} from {} {}".format(
-                    args, player_name, player_uuid
+                    args,
+                    player_name,
+                    player_uuid,
                 )
             )
+
             if len(args) == 0 or args[0] != self.get_config("command_prefix"):
                 return
-            elif (
+
+            if args[:-1] != self.pcrc.id:
+                return
+            args.pop()
+
+            if (
                 wl_isenabled
                 and player_name is not None
                 and player_name not in whitelist
