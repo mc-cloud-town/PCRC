@@ -1,0 +1,59 @@
+login:
+  failed: '{0}身份驗證失敗: {1}'
+  microsoft:
+    url_hint.0: 請在瀏覽器中打開以下網址以登入到微軟賬號
+    url_hint.1: 登入後，你將被重定向到一個空白頁面。在下方輸入重定向後的網頁網址
+    input:
+      .: '輸入重定向後的地址: '
+      invalid: 請輸入有效的重定向後的地址。地址的query部分應含有code條目
+
+chat:
+  game_join: o/ 開始錄製！
+  disconnect: o/ bye~
+  continue_recording: 有玩家在附近活動，繼續錄製
+  pause_recording: 附近玩家均已離開，暫停錄製
+  creating_recording_file: 正在生成錄製文件
+  created_recording_file: 錄製文件 "{0}" 已生成
+  stopping: PCRC 正在關閉
+  reached_file_size_limit: 文件大小限制 {0}MB 已達到！正在重啓 PCRC
+  reached_time_limit: 錄製時間限制 {0} 已達到！正在重啓 PCRC
+  illegal_option_name: |
+    你不能修改選項 "{0}"！
+    使用 "{1} set"來查看可修改的選項
+  option_set: 正在將<{0}>設置爲<{1}>
+  command:
+    status: |
+      工作中: {0}; 錄製中: {1}
+      錄製時長/工作時長: {2}/{3}
+      錄製數據包數: {4}
+      緩存大小/文件大小: {5}MB/{6}MB
+      文件名: {7}
+    spectate: 正在觀察者模式傳送至 {0} (uuid = {1})
+    position: 我在{0}
+    position.unknown: 我不知道我在哪 QWQ
+    set.title: '可設置的選項有:'
+    marker:
+      no_marker: 未找到任何標記事件
+      list_title: '標記事件列表:'
+      add: 已添加位於{0}的標記事件
+      delete: 已刪除位於{0}的標記事件
+    name: 已將文件名設爲 "{0}"
+    unknown: 未知指令！輸入 "{0}"以獲取幫助
+    wrong_argument: 參數錯誤！
+    help: |
+      ----- PCRC命令列表 -----
+      {0}: 顯示幫助信息
+      {0} status: 顯示狀態
+      {0} here: 發送一個 "!!here"指令
+      {0} pos: 顯示所處位置，不一定100%準確
+      {0} spec: 旁觀者傳送至發送指令的玩家
+      {0} stop: 關閉PCRC
+      {0} restart: 重啓PCRC
+      {0} set: 輸出所有可設置的選項
+      {0} set <選項> <值>: 將<選項>設置爲<值>，不會寫入配置文件
+      {0} marker: 輸出所有的標記事件
+      {0} marker add [<備註>]: 添加一個在當前時刻的標記事件，並將其命名爲<備註>（可選）
+      {0} marker del <序號>: 刪除序號爲<序號>的標記事件
+      {0} name <文件名>: 將錄像文件的文件名設置爲 <文件名>
+      {0} respawn: 讓PCRC機器人嘗試復活
+    permission_denied: 權限不足
